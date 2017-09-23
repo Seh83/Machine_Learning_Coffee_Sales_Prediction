@@ -19,7 +19,7 @@ once the Price_lb_COL of the pound of coffee reaches COL$ 9000.
 
 # Data
     Customer - Unique ID for each customer, 3 or 4 digits number. In 3 digit numbers, the 
-    first digit is the country. In the 4 digit, the first two digit represent the country. 
+    first digit is the country. In the 4 digit number, the first two digits represent the country. 
         1 Colombia
         2 Ecuador
         3 Brazil
