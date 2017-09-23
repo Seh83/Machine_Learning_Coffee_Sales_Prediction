@@ -43,11 +43,17 @@ the value of the pound of coffee reaches COL$ 9000
 	
 # This example is made on
 Python 3.6.1 :: Anaconda 4.4.0 (x86_64) using Spyder 3.2.2
+
 All modules with latest version as of Sep 2017
+
 Pandas
 Numpy
 Sklearn
 Matplotlib
 
-We providse data and code to solve the challenge. 
-The code includes the solutions using a Random Forrests (scikit-learn) model, but other models are possible. We dare you to try other algorithms and provide your feedback in the comments. 
+We provide data and code to solve the challenge. 
+The code includes the solutions using a Random Forrests model, but other models are possible. We dare you to try other algorithms and provide your feedback in the comments. 
+
+# Usage
+Download/clone the git 
+Open the Random_Forest Solution.py file in spyder and execute each line at a time
