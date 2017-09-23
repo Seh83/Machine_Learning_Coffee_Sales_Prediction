@@ -17,7 +17,7 @@ and other South American countries.
 The CEO of the company, wants to predict how much coffee his customers will order 
 once the Price_lb_COL of the pound of coffee reaches COL$ 9000. 
 
-# Data:
+# Data
     Customer - Unique ID for each customer, 3 or 4 digits number. In 3 digit numbers, the 
     first digit is the country. In the 4 digit, the first two digit represent the country. 
         1 Colombia
@@ -37,7 +37,7 @@ once the Price_lb_COL of the pound of coffee reaches COL$ 9000.
     
     Amount_lbs - Total amount of pounds sold in each order
 
-# QUESTION
+# Question
 Can you built a model that predicts the demand of coffee for each customer when 
 the value of the pound of coffee reaches COL$ 9000 
 	
