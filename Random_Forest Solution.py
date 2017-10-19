@@ -171,7 +171,7 @@ criteria=['mae', 'mse']
 for crit in criteria:
     rf_reg_model = RandomForestRegressor(bootstrap=True, criterion=crit, 
                                    max_depth=None,max_features='auto', 
-                                   max_leaf_nodes=None, min_impurity_split=1e-07,
+                                   max_leaf_nodes=None, min_impurity_decrease=1e-07,
                                    min_samples_leaf=1, min_samples_split=2,
                                    min_weight_fraction_leaf=0.0, n_estimators=100, 
                                    n_jobs=1, oob_score=True, random_state=None,
@@ -184,7 +184,7 @@ features=[0.3,0.5,1,2,3,'auto']
 for feat in features:
     rf_reg_model = RandomForestRegressor(bootstrap=True, criterion='mse', 
                                    max_depth=None,max_features=feat, 
-                                   max_leaf_nodes=None, min_impurity_split=1e-07,
+                                   max_leaf_nodes=None, min_impurity_decrease=1e-07,
                                    min_samples_leaf=1, min_samples_split=2,
                                    min_weight_fraction_leaf=0.0, n_estimators=100, 
                                    n_jobs=1, oob_score=True, random_state=None,
@@ -197,7 +197,7 @@ estimators=[100, 500, 1000, 2000]
 for est in estimators:
     rf_reg_model = RandomForestRegressor(bootstrap=True, criterion='mse', 
                                    max_depth=None,max_features='auto', 
-                                   max_leaf_nodes=None, min_impurity_split=1e-07,
+                                   max_leaf_nodes=None, min_impurity_decrease=1e-07,
                                    min_samples_leaf=1, min_samples_split=2,
                                    min_weight_fraction_leaf=0.0, n_estimators=est, 
                                    n_jobs=1, oob_score=True, random_state=None,
@@ -210,7 +210,7 @@ jobs=[1,2,3, 4, 5]
 for job in jobs:
     rf_reg_model = RandomForestRegressor(bootstrap=True, criterion='mse', 
                                    max_depth=None,max_features='auto', 
-                                   max_leaf_nodes=None, min_impurity_split=1e-07,
+                                   max_leaf_nodes=None, min_impurity_decrease=1e-07,
                                    min_samples_leaf=1, min_samples_split=2,
                                    min_weight_fraction_leaf=0.0, n_estimators=2000, 
                                    n_jobs=job, oob_score=True, random_state=None,
