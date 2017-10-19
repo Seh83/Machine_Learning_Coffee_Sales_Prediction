@@ -82,6 +82,7 @@ def pred_per_customer(customer_list, Price_lb_COL, model):
     # Generates a DF with predicion for all customers on a list
     df=pd.DataFrame()
     for customer in range(len(customer_list)):
+        customer = customer_list[customer]
         pred = demand_prediction(customer,Price_lb_COL, model)
         df2 = pd.DataFrame([[customer,Price_lb_COL, pred]], columns=['Customer','Price_lb_COL','Pred_DEMAND']) 
         df = df.append(df2, ignore_index=True)
@@ -90,7 +91,7 @@ def pred_per_customer(customer_list, Price_lb_COL, model):
 
 # READ DATA
 # From file
-product_sales = pd.read_csv('/Users/jpinzon/Google Drive/01_GitHub/Hack_meetup/ML_MeetUP_10.17/data.csv')
+product_sales = pd.read_csv('/Users/jpinzon/Google Drive/01_GitHub/Hack_meetup/Hack_01/ML_hack_night/data.csv')
 product_sales = product_sales.sort_values('Customer').reset_index(drop=True)
 
 # Data exploration
@@ -157,7 +158,7 @@ CAN JUMP TO THE OPTIMAZED MODEL BELOW
 # Raw Model
 rf_reg_model = RandomForestRegressor(bootstrap=True, criterion='mse', max_depth=None,
            max_features='auto', max_leaf_nodes=None,
-           min_impurity_split=1e-07, min_samples_leaf=1,
+           min_impurity_decrease=1e-07, min_samples_leaf=1,
            min_samples_split=2, min_weight_fraction_leaf=0.0,
            n_estimators=100, n_jobs=1, oob_score=True, random_state=None,
            verbose=0, warm_start=False)
@@ -233,7 +234,7 @@ feature_imp_opt = pd.DataFrame(rf_reg_model_opt.feature_importances_,
                            index=predictors).sort_values(by=[0],ascending=False)
 feature_imp_opt
 
-# CROSSVALCustomerATION
+# CROSSVALATION
 scores = cross_val_score(rf_reg_model_opt, df_train[predictors], df_train[outcome], cv=5)
 mean_score = '{0:0.4f}'.format(scores.mean() )
 mean_score
