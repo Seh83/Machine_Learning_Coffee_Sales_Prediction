@@ -44,7 +44,6 @@ import os
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from pandas import read_sql_query as rsq
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import LabelEncoder
 from sklearn.ensemble import RandomForestRegressor
@@ -156,6 +155,7 @@ outcome = 'Amount_lbs'
 CAN JUMP TO THE OPTIMAZED MODEL BELOW
 """
 # Raw Model
+model = RandomForestRegressor()
 rf_reg_model = RandomForestRegressor(bootstrap=True, criterion='mse', max_depth=None,
            max_features='auto', max_leaf_nodes=None,
            min_impurity_decrease=1e-07, min_samples_leaf=1,
@@ -213,7 +213,7 @@ for job in jobs:
                                    max_depth=None,max_features='auto', 
                                    max_leaf_nodes=None, min_impurity_decrease=1e-07,
                                    min_samples_leaf=1, min_samples_split=2,
-                                   min_weight_fraction_leaf=0.0, n_estimators=2000, 
+                                   min_weight_fraction_leaf=0.0, n_estimators=100, 
                                    n_jobs=job, oob_score=True, random_state=None,
                                    verbose=0, warm_start=False)
     scoring = run_model(rf_reg_model, df_train, df_test, predictors, outcome)
@@ -225,7 +225,7 @@ OPTIMIZED MODEL
 """
 # TRAINING OPTIMIZED MODEL
 rf_reg_model_opt = RandomForestRegressor(criterion = 'mse', max_features = 'auto',
-                                   n_estimators = 2000,  n_jobs = 3, 
+                                   n_estimators = 100,  n_jobs = 2, 
                                    oob_score = True, verbose = 0)
 scoring = run_model(rf_reg_model_opt, df_train, df_test, predictors, outcome)
 scoring
@@ -252,5 +252,5 @@ feature_imp_pred
 # PREDICTING DEMAND
 all_cust = list(product_sales['Customer'].unique())
 # Prediction at U$3. Can be changed to any value 
-pred_per_customer(all_cust, 3, rf_reg_model_opt_pred)
+pred_per_customer(all_cust, 9000, rf_reg_model_opt_pred)
 
